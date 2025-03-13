@@ -6,7 +6,7 @@
 @layer base {
 	html,
 	body {
-		@apply bg-[#F9FBFC] font-Raleway text-[18px] font-normal leading-[1.5] text-[#33404A] antialiased tl-p:text-[14px];
+		@apply bg-[#F9FBFC] font-Raleway text-[18px] font-normal leading-[1.5] text-gray antialiased tl-p:text-[14px];
 	}
 }
 
@@ -36,7 +36,7 @@
 		border-radius: 20px !important;
 	}
 	&::-webkit-scrollbar-thumb {
-		background: #ed1c24;
+		background: #d1f7ea;
 		-webkit-border-radius: 20px;
 		border-radius: 20px !important;
 	}
@@ -85,7 +85,11 @@ body,
 	}
 
 	.btnGradient {
-		@apply text-darkGreen cursor-pointer rounded-[50px] bg-red px-[12px] py-[8px] text-center text-[14px] duration-500;
+		@apply cursor-pointer rounded-[50px] px-[12px] py-[8px] text-center text-[14px] font-bold capitalize text-darkGreen duration-500;
+	}
+
+	.btnOutline {
+		@apply cursor-pointer rounded-[50px] border-2 border-white bg-transparent px-[24px] py-[14px] text-center text-[14px] font-bold capitalize text-white duration-500 hover:bg-white hover:text-darkGreen hover:shadow-[0px_0px_10px_#fff7];
 	}
 
 	.cusInput {
@@ -96,8 +100,8 @@ body,
 		@apply absolute left-[20px] top-full translate-y-[3px] text-[8px] text-red;
 	}
 
-	.ptMainPage {
-		@apply pt-[150px] tl-p:pt-[100px];
+	.title {
+		@apply text-[32px] font-extrabold capitalize text-semiBlack mb:text-[24px];
 	}
 }
 
@@ -109,30 +113,37 @@ body,
 	align-items: center;
 
 	.ant-pagination-prev,
-	.ant-pagination-next,
+	.ant-pagination-next {
+		color: black;
+	}
+
+	.ant-pagination-disabled a {
+		color: #0005 !important;
+	}
+
+	.ant-pagination-prev {
+		margin-right: auto;
+	}
+
+	.ant-pagination-next {
+		margin-left: auto;
+	}
+
 	.ant-pagination-item {
-		background: white;
-		border: 1px solid #f1f1f1;
-		border-radius: 100px;
-		width: 44px;
-		height: 44px;
+		background: transparent;
+		border: none;
+		border-radius: 8px;
+		width: 40px;
+		height: 40px;
 		color: #333;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 
 		&:hover {
-			background: #f58220 !important;
-			color: #fff;
+			background: #d1f7ea !important;
+			color: #052b1e;
 		}
-	}
-
-	.ant-pagination-prev {
-		transform: rotate(90deg);
-	}
-
-	.ant-pagination-next {
-		transform: rotate(-90deg);
 	}
 
 	.ant-pagination-item {
@@ -142,18 +153,18 @@ body,
 	}
 
 	.ant-pagination-item-active {
-		background: #ed1c24;
+		background: #d1f7ea;
 		border: none !important;
 
 		a {
-			color: #fff;
+			color: #052b1e;
 		}
 
 		&:hover {
-			background: #ed1c24 !important;
-			color: #fff !important;
+			background: #d1f7ea !important;
+			color: #052b1e !important;
 			a {
-				color: #fff !important;
+				color: #052b1e !important;
 			}
 		}
 	}
@@ -163,7 +174,7 @@ body,
 	}
 
 	.anticon-double-right {
-		color: #ed1c24 !important;
+		color: #052b1e !important;
 	}
 }
 
@@ -265,7 +276,7 @@ body,
 	height: auto !important;
 
 	.ant-select-selector {
-		background: #ed1c24 !important;
+		background: #d1f7ea !important;
 		border: none !important;
 		color: #fff !important;
 		padding: 10px 20px !important;
@@ -286,4 +297,54 @@ body,
 	&:hover {
 		background-position: top;
 	}
+}
+
+.textGradientToBottomRight {
+	background: url('/images/textGradient.jpg') no-repeat;
+	background-size: 200% 200% !important;
+	background-position: right;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: textGradientToLeft 5s linear infinite alternate;
+}
+
+@keyframes textGradientToLeft {
+	0% {
+		background-position: right;
+	}
+	100% {
+		background-position: left;
+	}
+}
+
+.BlogHorizontal {
+	background: linear-gradient(
+		77.74deg,
+		#013da0 11.85%,
+		#0142a9 20.65%,
+		#0148b3 29.45%,
+		#024ebc 38.25%,
+		#0254c5 47.05%,
+		#025ace 55.84%,
+		#0261d7 64.64%,
+		#0267e1 73.44%,
+		#036eea 82.24%,
+		#0375f3 91.04%
+	);
+}
+
+.BlogVertical {
+	background: linear-gradient(
+		357.92deg,
+		#013da0 2.23%,
+		#0142a9 12.81%,
+		#0148b3 23.39%,
+		#024ebc 33.96%,
+		#0254c5 44.54%,
+		#025ace 55.12%,
+		#0261d7 65.7%,
+		#0267e1 76.28%,
+		#036eea 86.86%,
+		#0375f3 97.44%
+	);
 }

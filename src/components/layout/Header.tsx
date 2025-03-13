@@ -1,5 +1,4 @@
 import { IconArrow, IconArrowDropdown, IconVietnam } from '@/components/common/Icon';
-import { useStorage } from '@/components/context/StorageProvider';
 import AppConfig from '@/config/AppConfig';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -13,8 +12,6 @@ function Header({ ...props }) {
 	const pathname = usePathname();
 	const { width } = useWindowSize();
 
-	const { listProductCate } = useStorage();
-
 	const [scrolled, setScrolled] = useState<any>(false);
 	const [activeMenu, setActiveMenu] = useState<any>(0);
 	const [showNav, setShowNav] = useState<any>(false);
@@ -22,8 +19,6 @@ function Header({ ...props }) {
 	const onEnterPageContent = (e: any) => {
 		setScrolled(e);
 	};
-
-	console.log('BiMeow log listProductCate', listProductCate);
 
 	// useEffect(() => {
 	// 	if (pathname == '/') setActiveMenu(0);
@@ -88,12 +83,20 @@ function Header({ ...props }) {
 					tl-p:bg-white tl-p:py-[10px]
 				`}
 			>
-				<div className="mx-auto flex max-w-[1280px] items-center justify-center gap-[64px] rounded-[40px] bg-[#FFFFFFA6] p-[12px] shadow-[0px_0px_60px_#0000000D]">
+				<div
+					className={`
+					mx-auto flex max-w-[1280px] items-center justify-center gap-[64px] rounded-[40px]  p-[12px] shadow-[0px_0px_60px_#0000000D]
+					${scrolled ? 'bg-white' : 'bg-[#FFFFFFA6]'}
+					`}
+				>
 					<Link href={'/'}>
 						<img
 							src={AppConfig.getBaseAssetUrl('/images/logo.png')}
 							alt="FryGo's Logo"
 							className="w-[134px] tl-p:w-[100px]"
+							width={0}
+							height={0}
+							sizes="100vw"
 						/>
 					</Link>
 
@@ -171,7 +174,10 @@ function Header({ ...props }) {
 									`}
 								>
 									{['VI', 'EN', 'JP'].map((e: any, i: number) => (
-										<div className="itemLang flex cursor-pointer items-center" key={i}>
+										<div
+											className="itemLang flex cursor-pointer items-center p-[4px] duration-300 hover:bg-green"
+											key={i}
+										>
 											<div className="flag flexCenter aspect-1 w-[24px] rounded-full text-[24px]">
 												<IconVietnam />
 											</div>
@@ -184,7 +190,7 @@ function Header({ ...props }) {
 							</div>
 						</div>
 						<Link href={'#'} className="" onClick={() => setShowNav(false)}>
-							<div className="btnGradient flexCenter group font-bold">
+							<div className="btnGradient flexCenter group">
 								<p>Trở thành khách hàng</p>
 								<div className="icon flexCenter ml-[12px] aspect-1 w-[22px] -rotate-45 rounded-full bg-[#000] text-[14px] text-white duration-300 group-hover:rotate-0">
 									<IconArrow />
@@ -193,7 +199,7 @@ function Header({ ...props }) {
 						</Link>
 					</div>
 
-					<div className="flexCenter bg-green hidden aspect-1 w-[40px] cursor-pointer rounded-[50%] tl-p:flex">
+					<div className="flexCenter hidden aspect-1 w-[40px] cursor-pointer rounded-[50%] bg-green tl-p:flex">
 						<div
 							className="hamburger-lines relative hidden tl-p:flex"
 							onClick={() => {

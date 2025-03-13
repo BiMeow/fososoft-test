@@ -1,13 +1,12 @@
 'use client';
-import { ReactLenis } from '@studio-freight/react-lenis';
-import gsap from 'gsap';
-import React, { useEffect, useMemo, useRef, useState } from 'react';
-import { useWindowSize } from 'usehooks-ts';
 import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
-import Particles, { initParticlesEngine } from '@tsparticles/react';
+import { ReactLenis } from '@studio-freight/react-lenis';
+import { initParticlesEngine } from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
-import AppConfig from '@/config/AppConfig';
+import gsap from 'gsap';
+import React, { useEffect, useRef, useState } from 'react';
+import { useWindowSize } from 'usehooks-ts';
 
 export default function DefaultLayout({ children, locale }: { children?: React.ReactNode; locale?: any }) {
 	const lenisRef = useRef<any>();
@@ -47,70 +46,13 @@ export default function DefaultLayout({ children, locale }: { children?: React.R
 		});
 	}, []);
 
-	const options: any = useMemo(
-		() => ({
-			fpsLimit: 60,
-			interactivity: {
-				events: {
-					onHover: {
-						enable: true,
-						mode: 'repulse',
-					},
-				},
-				modes: {
-					repulse: {
-						distance: 100,
-						duration: 0.1,
-					},
-				},
-			},
-			particles: {
-				color: {
-					value: '#ffffff',
-				},
-				move: {
-					direction: 'none',
-					enable: true,
-					outModes: {
-						default: 'out',
-					},
-					random: false,
-					speed: 2,
-					straight: false,
-				},
-				number: { density: { enable: true }, value: 30 },
-				opacity: {
-					value: { min: 0.5, max: 1 },
-				},
-				shape: {
-					type: 'image',
-					options: {
-						image: {
-							src: AppConfig.getBaseAssetUrl('/images/deco-star.png'),
-							width: 20,
-							height: 20,
-							replaceColor: false,
-						},
-					},
-				},
-				size: {
-					value: { min: 3, max: 10 },
-				},
-			},
-			detectRetina: true,
-		}),
-		[]
-	);
-
 	return (
 		init && (
 			<>
-				{/* <Particles id="tsparticles" options={options} /> */}
-
 				<ReactLenis ref={lenisRef} autoRaf={false} root={true}>
 					<div className="mainPage relative tl-p:w-screen tl-p:overflow-hidden">
 						<Header />
-						<div className="pageContent min-h-[calc(100dvh-400px)] w-full">{children}</div>
+						<div className="pageContent min-h-dvh w-full pt-[127px]">{children}</div>
 						<Footer />
 					</div>
 				</ReactLenis>

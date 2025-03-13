@@ -1,31 +1,51 @@
-import { memo, useMemo } from 'react';
-import { useRouter } from 'next/navigation';
-import AppConfig from '@/config/AppConfig';
+import { IconArrow, IconCalendar, IconClock } from '@/components/common/Icon';
+import dayjs from 'dayjs';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { memo } from 'react';
 
-function CardNews({ data, hideDesc = false, ...props }: any) {
+function CardNews({ data, ...props }: any) {
 	const router = useRouter();
 
 	return (
 		<>
 			<div
-				className={`CardNews group relative h-full cursor-pointer overflow-hidden rounded-[20px] bg-white shadow-[0px_0px_10px_#0001] hover:bg-white hover:shadow-[0px_0px_15px_#0003]`}
+				className={`CardNews //hover:bg-white //hover:shadow-[0px_0px_20px_#0003] group relative h-full cursor-pointer overflow-hidden bg-transparent shadow-[0px_0px_0px_#0000]`}
 			>
-				<div className="image aspect-[40/27] overflow-hidden">
+				<div className="image aspect-1 overflow-hidden rounded-[20px]">
 					<img
-						// src={AppConfig.getBaseAssetUrl('/images/home/news-1.jpg')}
-						src={data?.image?.vi}
+						src="/images/news-1.jpg"
 						alt=""
-						className="size-full object-cover duration-500 group-hover:scale-105"
+						className="size-full object-fill duration-500 group-hover:scale-105"
+						width={0}
+						height={0}
+						sizes="100vw"
 					/>
 				</div>
-				<div className="content p-[20px]">
-					<h3 className="mb-[10px] text-[18px] font-semibold duration-500 group-hover:text-red">
-						{data?.name?.vi}
+				<div className="content space-y-[16px] pt-[24px]">
+					<div className="tag w-fit rounded-[8px] bg-[#E2F0FE] px-[8px] py-[4px] text-[12px] font-medium capitalize text-[#0F4F9E]">
+						Quản Lý Sản Xuất
+					</div>
+					<h3 className="mb-[10px] text-[24px] font-extrabold duration-500 group-hover:text-green">
+						Tại sao BOM quan trọng trong quản lý sản xuất?
 					</h3>
-					{!hideDesc && <p className="text-[14px] text-[#979797]">{data?.description?.vi}</p>}
+					<div className="flex gap-[12px] text-[#667F93]">
+						<div className="flex items-center">
+							<IconCalendar className="icon mr-[8px] text-[24px]" />
+							<p>{dayjs(new Date()).format('DD/MM/YYYY')}</p>
+						</div>
+						<div className="w-px bg-[#D9E1E7]"></div>
+						<div className="flex items-center">
+							<IconClock className="icon mr-[8px] text-[24px]" />
+							<p>10 phút đọc</p>
+						</div>
+					</div>
+					<div className="flex items-center text-[#667F93]">
+						<p className="font-semibold">Khám phá thêm</p>
+						<IconArrow className="ml-[28px] text-[24px] duration-300 group-hover:ml-[32px]" />
+					</div>
 				</div>
-				<Link href={`/news/${data?.slug?.vi}`} className="absFull" />
+				{/* <Link href={`/news/bimeow`} className="absFull" /> */}
 			</div>
 		</>
 	);
