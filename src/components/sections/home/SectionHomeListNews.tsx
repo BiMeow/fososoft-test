@@ -73,7 +73,7 @@ function SectionHomeListNews({ ...props }) {
 	return (
 		<>
 			<div className={`SectionHomeListNews cusContainer secSpacing`}>
-				<div className="mx-[-16px] flex">
+				<div className="layoutListNews mx-[-16px] flex">
 					<div className="c1 w-[73%] px-[16px]">
 						<h2 className="title mb-[24px]">Tất cả bài viết</h2>
 						<div className="listNews mb-[72px] grid grid-cols-2 gap-x-[32px] gap-y-[48px]">
