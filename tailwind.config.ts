@@ -10,6 +10,7 @@ const config: Config = {
 		extend: {
 			fontFamily: {
 				Raleway: `"Raleway", sans-serif`,
+				Racing: `"Racing Sans One", sans-serif`,
 			},
 			screens: {
 				'dt-exl': { min: '1660px' },

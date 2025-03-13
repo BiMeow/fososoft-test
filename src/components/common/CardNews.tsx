@@ -45,7 +45,7 @@ function CardNews({ data, ...props }: any) {
 						<IconArrow className="ml-[28px] text-[24px] duration-300 group-hover:ml-[32px]" />
 					</div>
 				</div>
-				{/* <Link href={`/news/bimeow`} className="absFull" /> */}
+				<Link href={`/news/bimeow`} className="absFull" />
 			</div>
 		</>
 	);

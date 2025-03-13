@@ -36,12 +36,12 @@ function SectionHomeHeading({ ...props }) {
 					sizes="100vw"
 				/>
 
-				<div className="content cusContainer relative z-10">
-					<div className="mb-[72px]">
+				<div className="content cusContainer relative z-10 ">
+					<div className="fadeUpTopPage mb-[72px]">
 						<Breadcrumb list={listBreadcrumb} cusClass="justify-center" />
 					</div>
 
-					<h1 className="titleHeading mb-[8px] text-[64px]">
+					<h1 className="titleHeading fadeUpTopPage mb-[8px] text-[64px]">
 						Blog <span className="textGradientToBottomRight font-extrabold">FOSO</span> - <br /> Cập Nhật
 						Tin Tức{' '}
 						<span className="relative inline-block">
@@ -50,7 +50,9 @@ function SectionHomeHeading({ ...props }) {
 						</span>
 					</h1>
 
-					<p className="font-medium">Cùng FOSO khám phá kiến thức, xu hướng công nghệ và sản xuất ngay!</p>
+					<p className="fadeUpTopPage font-medium">
+						Cùng FOSO khám phá kiến thức, xu hướng công nghệ và sản xuất ngay!
+					</p>
 				</div>
 			</div>
 		</>

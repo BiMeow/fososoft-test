@@ -348,3 +348,39 @@ body,
 		#0375f3 97.44%
 	);
 }
+
+.contentEditor {
+	@apply text-[16px] text-[#231F20];
+
+	h2 {
+		@apply text-[20px] font-extrabold text-[#15AA7A];
+	}
+
+	h3 {
+		@apply font-bold text-[#15AA7A];
+	}
+
+	span {
+		@apply inline-block;
+	}
+
+	img {
+		@apply w-full rounded-[8px];
+	}
+
+	figcaption {
+		@apply mt-[8px] inline-block w-full text-center text-[#667F93];
+	}
+
+	ul {
+		@apply list-disc pl-[30px];
+	}
+
+	.contentBorder {
+		@apply max-w-[850px] border-l-[3px] border-[#15AA7A] px-[32px] py-[10px] text-[20px] leading-[28px];
+	}
+}
+
+.cusSectionDetail {
+	@apply space-y-[24px];
+}

@@ -85,7 +85,7 @@ function Header({ ...props }) {
 			>
 				<div
 					className={`
-					mx-auto flex max-w-[1280px] items-center justify-center gap-[64px] rounded-[40px]  p-[12px] shadow-[0px_0px_60px_#0000000D]
+					mx-auto flex max-w-[1280px] items-center justify-center gap-[64px] rounded-[40px]  p-[12px] shadow-[0px_0px_60px_#0000000D] duration-500
 					${scrolled ? 'bg-white' : 'bg-[#FFFFFFA6]'}
 					`}
 				>
