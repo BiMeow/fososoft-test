@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import gsap from 'gsap';
 import { useWindowSize } from 'usehooks-ts';
+import SplitType from 'split-type';
 
 let listBreadcrumb: any = [
 	{
@@ -21,6 +22,32 @@ function SectionHomeHeading({ ...props }) {
 	const { width } = useWindowSize();
 
 	useEffect(() => {
+		const splitContent = SplitType.create('.SectionHomeHeading .splitContent', {
+			types: 'words,chars',
+		});
+
+		setTimeout(() => {
+			gsap.timeline({
+				scrollTrigger: {
+					trigger: '.SectionHomeHeading',
+					start: '50px bottom',
+				},
+			}).fromTo(
+				splitContent.chars,
+				{
+					autoAlpha: 0,
+					opacity: 0,
+					// scaleX: 0,
+				},
+				{
+					// scaleX: 1,
+					stagger: 0.02,
+					autoAlpha: 1,
+					opacity: 1,
+				}
+			);
+		}, 750);
+
 		if (width > 1280) {
 			setTimeout(() => {
 				gsap.timeline({
@@ -85,7 +112,7 @@ function SectionHomeHeading({ ...props }) {
 						</span>
 					</h1>
 
-					<p className="fadeUpTopPage font-medium">
+					<p className="fadeUpTopPage splitContent font-medium">
 						Cùng FOSO khám phá kiến thức, xu hướng công nghệ và sản xuất ngay!
 					</p>
 				</div>
