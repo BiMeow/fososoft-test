@@ -1,6 +1,8 @@
-import { memo, useMemo } from 'react';
+import { memo, useEffect, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import Breadcrumb from '@/components/common/Breadcrumb';
+import gsap from 'gsap';
+import { useWindowSize } from 'usehooks-ts';
 
 let listBreadcrumb: any = [
 	{
@@ -16,32 +18,65 @@ let listBreadcrumb: any = [
 function SectionHomeHeading({ ...props }) {
 	const router = useRouter();
 
+	const { width } = useWindowSize();
+
+	useEffect(() => {
+		if (width > 1280) {
+			setTimeout(() => {
+				gsap.timeline({
+					scrollTrigger: {
+						trigger: '.SectionHomeHeading .deco1',
+						// start: 'top bottom',
+						start: 'top center',
+						end: 'bottom top',
+						scrub: 2,
+					},
+				}).fromTo('.SectionHomeHeading .deco1', { y: -100 }, { y: 100, ease: 'sine.out' });
+				gsap.timeline({
+					scrollTrigger: {
+						trigger: '.SectionHomeHeading .deco2',
+						// start: 'top bottom',
+						start: 'top center',
+						end: 'bottom top',
+						scrub: 2,
+					},
+				}).fromTo('.SectionHomeHeading .deco2', { y: -150, x: 0 }, { y: 150, x: -150, ease: 'sine.out' });
+			}, 500);
+		}
+
+		return () => {};
+	}, []);
+
 	return (
 		<>
 			<div className={`SectionHomeHeading secSpacing relative pb-[16px] pt-[48px] text-center`}>
-				<img
-					src="/images/home-heading-deco-1.png"
-					alt=""
-					className="absolute left-[2%] top-[20%] w-[10.2%]"
-					width={0}
-					height={0}
-					sizes="100vw"
-				/>
-				<img
-					src="/images/home-heading-deco-2.png"
-					alt=""
-					className="absolute right-[3%] top-[25%] w-[10.2%]"
-					width={0}
-					height={0}
-					sizes="100vw"
-				/>
+				<div className="deco1 absolute left-[2%] top-[20%] w-[10.2%]">
+					<img
+						src="/images/home-heading-deco-1.png"
+						alt=""
+						className="fadeRightTopPage w-full"
+						width={0}
+						height={0}
+						sizes="100vw"
+					/>
+				</div>
+				<div className="deco2 absolute right-[3%] top-[25%] w-[10.2%]">
+					<img
+						src="/images/home-heading-deco-2.png"
+						alt=""
+						className=" fadeLeftTopPage w-full"
+						width={0}
+						height={0}
+						sizes="100vw"
+					/>
+				</div>
 
 				<div className="content cusContainer relative z-10 ">
 					<div className="fadeUpTopPage mb-[72px]">
 						<Breadcrumb list={listBreadcrumb} cusClass="justify-center" />
 					</div>
 
-					<h1 className="titleHeading fadeUpTopPage mb-[8px] text-[64px]">
+					<h1 className="titleHeading fadeUpTopPage mb-[8px] text-[64px] mb:text-[32px]">
 						Blog <span className="textGradientToBottomRight font-extrabold">FOSO</span> - <br /> Cập Nhật
 						Tin Tức{' '}
 						<span className="relative inline-block">

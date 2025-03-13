@@ -2,11 +2,37 @@
 
 import SectionHomeHeading from '@/components/sections/home/SectionHomeHeading';
 import SectionHomeListNews from '@/components/sections/home/SectionHomeListNews';
+import gsap from 'gsap';
 import { useRouter } from 'next/navigation';
-import { memo } from 'react';
+import { memo, useEffect } from 'react';
 
 function PageHome({ pageContent, ...props }: any) {
 	const router = useRouter();
+
+	useEffect(() => {
+		setTimeout(() => {
+			gsap.timeline({
+				scrollTrigger: {
+					trigger: '.decoHome1',
+					// start: 'top bottom',
+					start: 'top bottom',
+					end: 'bottom top',
+					scrub: true,
+				},
+			}).fromTo('.decoHome1', { y: 0 }, { y: 300, ease: 'sine.out' });
+			gsap.timeline({
+				scrollTrigger: {
+					trigger: '.decoHome2',
+					// start: 'top bottom',
+					start: 'top bottom',
+					end: 'bottom top',
+					scrub: true,
+				},
+			}).fromTo('.decoHome2', { y: 0 }, { y: -300, ease: 'sine.out' });
+		}, 500);
+
+		return () => {};
+	}, []);
 
 	return (
 		<>
@@ -14,7 +40,7 @@ function PageHome({ pageContent, ...props }: any) {
 				<img
 					src="/images/home-deco.png"
 					alt=""
-					className="absolute left-0 top-[4%] w-[20%]"
+					className="decoHome1 absolute left-0 top-[4%] w-[20%]"
 					width={0}
 					height={0}
 					sizes="100vw"
@@ -22,7 +48,7 @@ function PageHome({ pageContent, ...props }: any) {
 				<img
 					src="/images/home-deco.png"
 					alt=""
-					className="absolute bottom-0 right-0 w-[20%] scale-[-1]"
+					className="decoHome2 absolute bottom-0 right-0 w-[20%] scale-[-1]"
 					width={0}
 					height={0}
 					sizes="100vw"

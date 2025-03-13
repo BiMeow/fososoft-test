@@ -86,6 +86,7 @@ function Header({ ...props }) {
 				<div
 					className={`
 					mx-auto flex max-w-[1280px] items-center justify-center gap-[64px] rounded-[40px]  p-[12px] shadow-[0px_0px_60px_#0000000D] duration-500
+					tl-p:justify-between
 					${scrolled ? 'bg-white' : 'bg-[#FFFFFFA6]'}
 					`}
 				>
@@ -112,7 +113,7 @@ function Header({ ...props }) {
 								<div
 									className={`
 									relative flex cursor-pointer items-center font-medium duration-300
-									${activeMenu == i ? 'text-green' : 'text-[#25272A] hover:font-bold hover:text-[#000]'}
+									${activeMenu == i ? 'text-green' : 'text-[#25272A] hover:font-bold group-hover:text-[#000]'}
 									`}
 								>
 									<div className="titleNav relative">
@@ -139,7 +140,7 @@ function Header({ ...props }) {
 										>
 											{e.children?.map((e2: any, i2: number) => (
 												<div
-													className="itemSubMenu relative duration-500 hover:text-orange"
+													className="itemSubMenu relative duration-500 hover:text-green"
 													key={i2}
 												>
 													<p className="cursor-pointer text-[14px]">{e2.title}</p>
@@ -157,7 +158,7 @@ function Header({ ...props }) {
 						))}
 					</div>
 
-					<div className="listBtn flexCenter gap-[8px]">
+					<div className="listBtn flexCenter gap-[8px] mb:hidden">
 						<div className="language group relative rounded-[50px] border border-[#09090B0D] bg-[#e5e6e7] px-[12px] py-[8px]">
 							<div className="flexCenter activeLang">
 								<div className="flag flexCenter aspect-1 w-[24px] rounded-full text-[24px]">
@@ -171,11 +172,12 @@ function Header({ ...props }) {
 								<div
 									className={`
 									list space-y-[10px] rounded-b-[10px] bg-[#FFFFFF80] p-[10px]
+									${scrolled ? 'bg-white' : ''}
 									`}
 								>
 									{['VI', 'EN', 'JP'].map((e: any, i: number) => (
 										<div
-											className="itemLang flex cursor-pointer items-center p-[4px] duration-300 hover:bg-green"
+											className="itemLang flex cursor-pointer items-center rounded-[4px] p-[4px] duration-300 hover:bg-green"
 											key={i}
 										>
 											<div className="flag flexCenter aspect-1 w-[24px] rounded-full text-[24px]">

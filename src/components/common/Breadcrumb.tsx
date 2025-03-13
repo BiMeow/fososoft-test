@@ -17,7 +17,7 @@ function Breadcrumb({ list = [], cusClass = '', ...props }: any) {
 						<Link
 							key={i}
 							href={e.href}
-							className="itemBreadcrumb duration-300 last:pointer-events-none last:font-bold last:text-[#050505] hover:text-green mb:text-[8px]"
+							className="itemBreadcrumb duration-300 last:pointer-events-none last:font-bold last:text-[#050505] hover:text-green"
 						>
 							{e.title} {i != list.length - 1 && <span className="!text-[#17181A]">{`>`}</span>}
 						</Link>

@@ -3,14 +3,18 @@ import dayjs from 'dayjs';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { memo } from 'react';
+import { motion } from 'framer-motion';
 
 function CardNews({ data, ...props }: any) {
 	const router = useRouter();
 
 	return (
 		<>
-			<div
+			<motion.div
 				className={`CardNews //hover:bg-white //hover:shadow-[0px_0px_20px_#0003] group relative h-full cursor-pointer overflow-hidden bg-transparent shadow-[0px_0px_0px_#0000]`}
+				initial={{ opacity: 0, y: 50 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true }}
 			>
 				<div className="image aspect-1 overflow-hidden rounded-[20px]">
 					<img
@@ -20,6 +24,7 @@ function CardNews({ data, ...props }: any) {
 						width={0}
 						height={0}
 						sizes="100vw"
+						loading="lazy"
 					/>
 				</div>
 				<div className="content space-y-[16px] pt-[24px]">
@@ -46,7 +51,7 @@ function CardNews({ data, ...props }: any) {
 					</div>
 				</div>
 				<Link href={`/news/bimeow`} className="absFull" />
-			</div>
+			</motion.div>
 		</>
 	);
 }

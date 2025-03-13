@@ -55,14 +55,14 @@ function SectionHomeListNews({ ...props }) {
 	const itemRenderPagin: PaginationProps['itemRender'] = (_, type, originalElement) => {
 		if (type === 'prev') {
 			return (
-				<a className="flexCenter">
+				<a className="flexCenter mb:hidden">
 					<IconArrow className="mr-[8px] rotate-180 text-[24px]" /> Trang trước
 				</a>
 			);
 		}
 		if (type === 'next') {
 			return (
-				<a className="flexCenter">
+				<a className="flexCenter mb:hidden">
 					Trang kế tiếp <IconArrow className="ml-[8px] text-[24px]" />
 				</a>
 			);
@@ -73,11 +73,11 @@ function SectionHomeListNews({ ...props }) {
 	return (
 		<>
 			<div className={`SectionHomeListNews cusContainer secSpacing`}>
-				<div className="layoutListNews mx-[-16px] flex">
-					<div className="c1 w-[73%] px-[16px]">
-						<h2 className="title mb-[24px]">Tất cả bài viết</h2>
-						<div className="listNews mb-[72px] grid grid-cols-2 gap-x-[32px] gap-y-[48px]">
-							<div className="blog col-span-2">
+				<div className="layoutListNews mx-[-16px] flex flex-wrap gap-y-[30px]">
+					<div className="c1 w-[73%] px-[16px] tl-p:w-full">
+						<h2 className="title fadeRightTopPage mb-[24px]">Tất cả bài viết</h2>
+						<div className="listNews fadeInTopPage mb-[72px] grid grid-cols-2 gap-x-[32px] gap-y-[48px] mb:grid-cols-1">
+							<div className="blog fadeRightTopPage col-span-2 mb:col-span-1">
 								<BlogHorizontal />
 							</div>
 
@@ -87,7 +87,7 @@ function SectionHomeListNews({ ...props }) {
 								</div>
 							))}
 						</div>
-						<div className="pagin">
+						<div className="pagin fadeInTopPage">
 							<Pagination
 								align="center"
 								pageSize={6}
@@ -102,7 +102,7 @@ function SectionHomeListNews({ ...props }) {
 							/>
 						</div>
 					</div>
-					<div className="c1 w-[27%] px-[16px] ">
+					<div className="c2 fadeUpTopPage w-[27%] px-[16px] tl-p:w-full">
 						<div className="sticky top-[150px] space-y-[32px]">
 							<div className="search">
 								<h3 className="title mb-[24px] text-[24px]">Tìm kiếm</h3>
