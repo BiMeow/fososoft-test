@@ -11,5 +11,4 @@ export let listNews= [
 		contentImage: '',
 		contentVideo: '',
 	},
-	
 ];

@@ -26,6 +26,8 @@ const config: Config = {
 				orange: '#F58220',
 				green: '#A3EED6',
 				darkGreen: '#052B1E',
+				gray: '#33404A',
+				semiBlack: '#050505',
 			},
 			animation: {
 				'spin-slow': 'spin 10s linear infinite',

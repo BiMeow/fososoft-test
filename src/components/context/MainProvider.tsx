@@ -198,8 +198,8 @@ const MainProvider: React.FC<any> = ({ children, isPrivate }) => {
 
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger);
-		getSetting();
-		getListProductCate('');
+		// getSetting();
+		// getListProductCate('');
 
 		return () => {};
 	}, []);
@@ -212,6 +212,8 @@ const MainProvider: React.FC<any> = ({ children, isPrivate }) => {
 				ScrollTrigger.refresh();
 			}
 		}, 1000);
+
+		return () => {};
 	}, [isMounted, pathName]);
 
 	// useEffect(() => {
