@@ -11,8 +11,8 @@ export let newsContent = [
 					<figcaption>Quy trình 5s là gì?</figcaption>
 				</figure>
 				<div className="flex gap-[5px] text-center text-[20px] leading-[24px]">
-					<p className="font-Racing float-left text-[96px] text-[#15AA7A]">&ldquo;</p>
-					<p>
+					<p className="quote">&ldquo;</p>
+					<p className="quoteContent">
 						Chắc hẳn bạn đã từng nghe qua khái niệm về quy trình 5S là gì? Xây dựng 5S cần yếu tố gì? Bài
 						viết dưới đây của FOSO sẽ trả lời cho bạn thông tin chi tiết về mô hình này cũng như yếu tố tạo
 						nên thành công của quy trình bạn nhé.

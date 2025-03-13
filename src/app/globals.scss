@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -378,6 +377,14 @@ body,
 
 	.contentBorder {
 		@apply max-w-[850px] border-l-[3px] border-[#15AA7A] px-[32px] py-[10px] text-[20px] leading-[28px];
+	}
+
+	.quote {
+		@apply float-left font-Racing text-[96px] leading-[24px] text-[#15AA7A];
+	}
+
+	.quoteContent {
+		@apply leading-[24px];
 	}
 }
 
