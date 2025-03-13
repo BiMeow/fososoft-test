@@ -147,12 +147,12 @@ function PageNewsDetail({ pageContent, ...props }: any) {
 	return (
 		<>
 			<div className={`PageNewsDetail cusContainer secSpacing`}>
-				<div className="mb-[48px]">
+				<div className="fadeRightTopPage mb-[48px]">
 					<Breadcrumb list={listBreadcrumb} />
 				</div>
 
-				<div className="layoutNewsDetail secSpacing mx-[-24px] flex">
-					<div className="c1 w-[63.7%] px-[24px]">
+				<div className="layoutNewsDetail secSpacing mx-[-24px] flex flex-wrap gap-y-[30px]">
+					<div className="c1 w-[63.7%] px-[24px] tl-p:w-full">
 						<div className="heading fadeUpTopPage mb-[24px] space-y-[16px]">
 							<div className="tag w-fit rounded-[8px] bg-[#E2F0FE] px-[8px] py-[4px] text-[12px] font-medium capitalize text-[#0F4F9E]">
 								Quản Lý Sản Xuất
@@ -238,7 +238,7 @@ function PageNewsDetail({ pageContent, ...props }: any) {
 						</div>
 					</div>
 
-					<div className="c2 fadeUpTopPage w-[36.3%] px-[24px] ">
+					<div className="c2 fadeUpTopPage w-[36.3%] px-[24px] tl-p:w-full">
 						<div className="sticky top-[150px] space-y-[32px]">
 							<div className="listSection text-[16px] font-medium leading-[2] text-[#33404A]">
 								{newsContent?.map((e: any, i: number) => (
@@ -277,7 +277,7 @@ function PageNewsDetail({ pageContent, ...props }: any) {
 
 				<div className="listRelatedNews fadeUpTopPage">
 					<h3 className="title mb-[24px]">Bài viết liên quan</h3>
-					<div className="list grid grid-cols-3 gap-[32px]">
+					<div className="list grid grid-cols-3 gap-[32px] mb:grid-cols-1">
 						{[...Array(3)]?.map((e: any, i: number) => (
 							<div className="itemNews" key={i}>
 								<CardNews />

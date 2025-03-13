@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -308,15 +309,6 @@ body,
 	animation: textGradientToLeft 5s linear infinite alternate;
 }
 
-@keyframes textGradientToLeft {
-	0% {
-		background-position: right;
-	}
-	100% {
-		background-position: left;
-	}
-}
-
 .BlogHorizontal {
 	background: linear-gradient(
 		77.74deg,
@@ -331,6 +323,14 @@ body,
 		#036eea 82.24%,
 		#0375f3 91.04%
 	);
+
+	.deco1 {
+		animation: deco1Move 5s ease-in-out infinite alternate;
+	}
+
+	.deco2 {
+		animation: deco2Move 3s ease-in-out infinite alternate;
+	}
 }
 
 .BlogVertical {
@@ -383,4 +383,33 @@ body,
 
 .cusSectionDetail {
 	@apply space-y-[24px];
+}
+
+@keyframes textGradientToLeft {
+	0% {
+		background-position: right;
+	}
+	100% {
+		background-position: left;
+	}
+}
+
+@keyframes deco1Move {
+	0% {
+		transform: translate(0px, 0px);
+	}
+
+	100% {
+		transform: translate(25%, 25%);
+	}
+}
+
+@keyframes deco2Move {
+	0% {
+		transform: translate(0px, 0px);
+	}
+
+	100% {
+		transform: translate(0px, -25%);
+	}
 }

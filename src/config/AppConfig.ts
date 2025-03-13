@@ -5,7 +5,7 @@ const AppConfig = {
 		if (url?.endsWith('/')) {
 			url = url.slice(0, -1);
 		}
-		return process.env.APP_URL ? `${process.env.APP_URL}${url}` : `https://www.immi-go.com${url}`;
+		return process.env.APP_URL ? `${process.env.APP_URL}${url}` : `https://fososoft-test.vercel.app${url}`;
 	},
 	getBaseAssetUrl: (path = '') => {
 		return `${process.env.NEXT_PUBLIC_BASE_ASSET_URL || ''}${path}?v=${process.env.PUBLIC_ASSET_VERSION || ''}`;

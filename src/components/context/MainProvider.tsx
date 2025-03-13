@@ -207,11 +207,11 @@ const MainProvider: React.FC<any> = ({ children, isPrivate }) => {
 	useEffect(() => {
 		setTimeout(() => {
 			if (isMounted() && pathName) {
+				window.scroll(0, 0);
 				initAnimation();
-				window.scrollTo({ top: 0, behavior: 'smooth' });
 				ScrollTrigger.refresh();
 			}
-		}, 1000);
+		}, 750);
 
 		return () => {};
 	}, [isMounted, pathName]);
